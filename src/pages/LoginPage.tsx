@@ -1,5 +1,12 @@
+import LoginForm from "@/components/login/LoginForm";
+
 function LoginPage() {
-  return <div></div>;
+  return (
+    <div className="center flex-col">
+      <img src="/logo.svg" alt="서울우유" className="mb-[53px]"/>
+      <LoginForm />
+    </div>
+  );
 }
 
 export default LoginPage;

@@ -133,3 +133,73 @@
   line-height: var(--line-height-standard);
   letter-spacing: var(--letter-spacing-standard);
 }
+.b3 {
+  font-weight: var(--font-weight-semibold);
+  font-size: 14px;
+  line-height: var(--line-height-standard);
+  letter-spacing: var(--letter-spacing-standard);
+}
+
+.b4 {
+  font-weight: var(--font-weight-medium);
+  font-size: 14px;
+  line-height: var(--line-height-standard);
+  letter-spacing: var(--letter-spacing-standard);
+}
+
+.b5 {
+  font-weight: var(--font-weight-medium);
+  font-size: 12px;
+  line-height: var(--line-height-standard);
+  letter-spacing: var(--letter-spacing-standard);
+}
+
+.b6 {
+  font-weight: var(--font-weight-regular);
+  font-size: 12px;
+  line-height: var(--line-height-standard);
+  letter-spacing: var(--letter-spacing-standard);
+}
+
+/* Caption Styles */
+.c1 {
+  font-weight: var(--font-weight-medium);
+  font-size: 10px;
+  line-height: var(--line-height-standard);
+  letter-spacing: var(--letter-spacing-standard);
+}
+
+.c2 {
+  font-weight: var(--font-weight-regular);
+  font-size: 10px;
+  line-height: var(--line-height-standard);
+  letter-spacing: var(--letter-spacing-standard);
+}
+
+.c3 {
+  font-weight: var(--font-weight-medium);
+  font-size: 8px;
+  line-height: var(--line-height-standard);
+  letter-spacing: var(--letter-spacing-standard);
+}
+
+.c4 {
+  font-weight: var(--font-weight-regular);
+  font-size: 8px;
+  line-height: var(--line-height-standard);
+  letter-spacing: var(--letter-spacing-standard);
+}
+
+.c5 {
+  font-weight: var(--font-weight-regular);
+  font-size: 6px;
+  line-height: var(--line-height-caption);
+  letter-spacing: var(--letter-spacing-standard);
+}
+.center {
+  @apply flex items-center justify-center min-h-screen w-screen px-[22px];
+}
+
+.container {
+  @apply pt-10 min-h-screen w-screen px-[22px];
+}
