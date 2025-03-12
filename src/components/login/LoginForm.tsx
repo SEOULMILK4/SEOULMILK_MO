@@ -22,7 +22,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="w-[346px]"> 
+    <div className="w-[346px]">
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <EmployeeNumberInput />
