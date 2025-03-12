@@ -197,9 +197,11 @@
   letter-spacing: var(--letter-spacing-standard);
 }
 .center {
+  @apply flex items-center justify-center;
+}
+.center-login {
   @apply flex items-center justify-center min-h-screen w-screen px-[22px];
 }
-
 .container {
   @apply pt-10 min-h-screen w-screen px-[22px];
 }

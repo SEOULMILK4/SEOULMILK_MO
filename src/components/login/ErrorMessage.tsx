@@ -47,7 +47,7 @@ const ErrorMessages = () => {
   }
 
   return (
-    <div className="min-h-[22px] text-primary-500 b3">
+    <div className="min-h-[22px] w-full text-center text-primary-500 b3">
       {errorMessage ? errorMessage : null}
     </div>
   );
