@@ -15,7 +15,7 @@ export const postAgencyLogin = async (
   role: Role
 ) => {
   try {
-    const response = await api.post("/agency/login", {
+    const response = await api.post("/api/agency/login", {
       agencyId,
       password,
     });

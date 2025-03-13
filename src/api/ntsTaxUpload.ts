@@ -4,7 +4,7 @@ const accessToken = localStorage.getItem("accessToken");
 
 export const postNtsTaxUpload = async (files: FormData) => {
   try {
-    const response = await api.post("/agency/nts-tax/upload", files, {
+    const response = await api.post("/api/agency/nts-tax/upload", files, {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${accessToken}`,
