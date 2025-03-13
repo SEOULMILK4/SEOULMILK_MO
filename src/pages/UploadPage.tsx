@@ -1,44 +1,52 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import UploadZone from "@/components/UploadZone";
-import axios from "axios";
+import { postNtsTaxUpload } from "@/api/ntsTaxUpload";
+import { useNtsTaxStore } from "@/stores/ntsTax";
 
 function UploadPage() {
-  const [files, setFiles] = useState<File[]>([]);
   const name = localStorage.getItem("name");
-  // 파일 변경 핸들러
+  const { setTotalCnt } = useNtsTaxStore();
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      const selectedFiles = Array.from(event.target.files);
-      setFiles(selectedFiles); // 파일 상태 업데이트
-      uploadFiles(selectedFiles); // 파일 업로드 실행
+      uploadFiles(Array.from(event.target.files));
     }
   };
 
-  // 파일 업로드 API 요청
   const uploadFiles = async (files: File[]) => {
     const formData = new FormData();
     files.forEach((file) => {
       formData.append("files", file);
     });
 
+    setLoading(true);
+
     try {
-      const response = await axios.post(
-        "https://your-api-endpoint.com/upload", // API URL 설정
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      console.log("업로드 성공:", response.data);
+      const response = await postNtsTaxUpload(formData);
+      console.log("업로드 성공:", response);
+
+      if (response && response.totalCnt !== undefined) {
+        setTotalCnt(response.totalCnt);
+      }
+
+      navigate("/complete");
     } catch (error) {
       console.error("업로드 실패:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="container">
+      {loading && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+          <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <div className="mt-[82px]">
         <div className="h4">
           <span className="text-secondary-500">{name}</span>님
@@ -48,7 +56,7 @@ function UploadPage() {
           세금계산서를 간편하게 업로드 하세요.
         </div>
       </div>
-      {/* 업로드 존 클릭 시 파일 업로드 */}
+
       <UploadZone
         onUploadClick={() => document.getElementById("fileInput")?.click()}
       />

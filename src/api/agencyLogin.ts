@@ -31,7 +31,7 @@ export const postAgencyLogin = async (
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
 
-      return { memberId, name, email, role }; // ✅ 유저 데이터 반환
+      return { memberId, name, email, role };
     } else {
       console.error("로그인 실패:", response.data.message);
       return null;

@@ -2,9 +2,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import EmployeeNumberInput from "./EmployeeNumberInput";
 import PasswordInput from "./PasswordInput";
 import ErrorMessages from "./ErrorMessage";
-import { postAgencyLogin } from "@/api/agency";
-import { useUserStore } from "@/stores/useUserStore"; // Zustand User Store
-import { useState } from "react";
+import { postAgencyLogin } from "@/api/agencyLogin";
+import { useUserStore } from "@/stores/useUserStore"; 
 import { useNavigate } from "react-router-dom";
 
 interface LoginFormInputs {
@@ -22,7 +21,7 @@ const LoginForm = () => {
   });
 
   const navigate = useNavigate();
-  const setUser = useUserStore((state) => state.setUser); // Zustand 상태 업데이트 함수
+  const setUser = useUserStore((state) => state.setUser); 
 
   const onSubmit = async (data: LoginFormInputs) => {
     console.log("로그인 시도:", data);
@@ -31,17 +30,17 @@ const LoginForm = () => {
       data.employeeNumber,
       data.password,
       "dealership"
-    ); // 역할을 "dealership"으로 설정
+    ); 
 
     if (response) {
       console.log("로그인 성공!");
 
-      // Zustand Store 업데이트
+      
       setUser({
         id: response.memberId,
         name: response.name,
         email: response.email,
-        role: "dealership", // 로그인한 역할
+        role: "dealership", 
       });
 
       navigate("/upload");
