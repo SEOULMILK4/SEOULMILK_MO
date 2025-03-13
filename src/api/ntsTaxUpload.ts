@@ -1,8 +1,7 @@
 import { api } from "./index";
 
-const accessToken = localStorage.getItem("accessToken");
-
 export const postNtsTaxUpload = async (files: FormData) => {
+  const accessToken = localStorage.getItem("accessToken");
   try {
     const response = await api.post("/api/agency/nts-tax/upload", files, {
       headers: {
