@@ -7,7 +7,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   server: {
     port: 3000,
-    host: "0.0.0.0", // 네트워크 모든 IP에서 접근 가능
   },
   plugins: [react(), tailwindcss()],
   base: "/",
