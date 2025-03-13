@@ -18,6 +18,7 @@ export const postAgencyLogin = async (
     const response = await api.post("/api/agency/login", {
       agencyId,
       password,
+      role: "delership"
     });
 
     if (response.data && response.data.success) {
